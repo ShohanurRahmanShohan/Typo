@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+  <head>
+    <title>TEXT Converter</title>
+  </head>
+  <body>
+    <h1>Letter to Number Converter</h1>
+    <form>
+      <label for="letter-input">Input letters:</label>
+      <input type="text" id="letter-input" name="letter-input">
+      <br>
+      <label for="number-input">Input numbers:</label>
+      <input type="text" id="number-input" name="number-input">
+      <br>
+      <button type="button" id="convert-btn">Convert to Numbers</button>
+      <button type="button" id="undo-btn">Undo Conversion</button>
+    </form>
+    <p id="result"></p>
+    <script src="conversion.js"></script>
+    <script>
+      // Get references to the input and output elements
+      const letterInput = document.getElementById("letter-input");
+      const numberInput = document.getElementById("number-input");
+      const result = document.getElementById("result");
+      const convertBtn = document.getElementById("convert-btn");
+      const undoBtn = document.getElementById("undo-btn");
+
+      // Add event listeners for the buttons
+      convertBtn.addEventListener("click", function() {
+        result.innerHTML = letterToNumber(letterInput.value);
+      });
+
+      undoBtn.addEventListener("click", function() {
+        result.innerHTML = numberToLetter(numberInput.value);
+      });
+    </script>
+  </body>
+</html>
